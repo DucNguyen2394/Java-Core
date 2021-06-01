@@ -37,9 +37,9 @@ public class Book {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter book's name: ");
 		bookName = scan.nextLine();
-		System.out.println("Enter book's name: ");
+		System.out.println("Enter create at: ");
 		createAt = scan.nextLine();
-		System.out.println("Enter book's name: ");
+		System.out.println("Enter nick name author: ");
 		nickName = scan.nextLine();
 	}
 	@Override

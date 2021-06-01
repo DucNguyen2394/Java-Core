@@ -1,5 +1,6 @@
 package book;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Author {
@@ -9,8 +10,12 @@ public class Author {
 	private String birthday;
 	private String address;
 	
+	Scanner scan = new Scanner(System.in);
 	public Author(){
 		
+	}
+	public Author(String nickName){
+		this.nickName = nickName;
 	}
 	public Author(String name, int old, String nickName, String birthday, String address) {
 		this.name = name;
@@ -50,14 +55,31 @@ public class Author {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	public void input(ArrayList<Author> authorList){
+		input();
+		System.out.println("Enter author nick name: ");
+		while(true){				
+			nickName = scan.nextLine();
+			boolean isFind = false;
+			for(int i = 0; i < authorList.size(); i++){
+				if(authorList.get(i).getNickName().equalsIgnoreCase(nickName)){
+					isFind = true;
+				}
+			}
+			if(!isFind){
+				break;
+			}else{
+				System.err.println("Nick name already exist");				
+			}
+		}
+		
+		
+	}
 	public void input(){
-		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter author name: ");
 		name = scan.nextLine();
 		System.out.println("Enter author old: ");
 		old = Integer.parseInt(scan.nextLine());
-		System.out.println("Enter author nick name: ");
-		nickName = scan.nextLine();
 		System.out.println("Enter author birthday: ");
 		birthday = scan.nextLine();
 		System.out.println("Enter author address: ");
